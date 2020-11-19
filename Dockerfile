@@ -225,6 +225,7 @@ RUN echo @main http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositori
     libffi-dev \
     freetype-dev \
     sqlite-dev \
+    librdkafka-dev \
     libjpeg-turbo-dev \
     postgresql-dev && \
     docker-php-ext-configure gd \
@@ -240,6 +241,8 @@ RUN echo @main http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositori
     docker-php-ext-enable mongodb && \
     pecl install apcu && \
     docker-php-ext-enable apcu && \
+    pecl install rdkafka && \
+    docker-php-ext-enable rdkafka && \
     docker-php-source delete && \
     mkdir -p /etc/nginx && \
     mkdir -p /data/project && \
